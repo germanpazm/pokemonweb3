@@ -374,10 +374,10 @@ const mostrarBoton=ref(false);
                                  <div class="text-center py-4">
                                      <a class="h6 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
                                      <div class="d-flex align-items-center justify-content-center mt-2">
-                                         <p>Id: {{ pokemonEnVenta[index].id }}</p>
-                                         <p>Nivel: {{ pokemonEnVenta[index].nivel }}</p>
-                                         <p>Ataque: {{ pokemonEnVenta[index].ataque }}</p>
-                                         <p>Defensa: {{ pokemonEnVenta[index].defensa }}</p>
+                                         <p>Id: {{ pokemonEnVenta[index]?.id }}</p>
+                                         <p>Nivel: {{ pokemonEnVenta[index]?.nivel }}</p>
+                                         <p>Ataque: {{ pokemonEnVenta[index]?.ataque }}</p>
+                                         <p>Defensa: {{ pokemonEnVenta[index]?.defensa }}</p>
                                          
                                      </div>
                                                                      <div class="d-flex align-items-center justify-content-center mt-2">
@@ -388,7 +388,7 @@ const mostrarBoton=ref(false);
                                      </div>
      
                                      <div class="d-flex align-items-center justify-content-center mb-1">
-        <button @click="comprarPokemonVenta(pokemonEnVenta[index].id, pokemonEnVenta[index].precioventa, pokemonEnVenta[index].actualpropietario)">Comprar Pokemon</button>
+        <button @click="comprarPokemonVenta(pokemonEnVenta[index]?.id, pokemonEnVenta[index]?.precioventa, pokemonEnVenta[index]?.actualpropietario)">Comprar Pokemon</button>
   
                                      </div>
                                  </div>

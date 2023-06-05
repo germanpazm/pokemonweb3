@@ -86,11 +86,7 @@ web.methods.getUserTransactionHashes(userAccount).call()
     });
 }
 
-async function obtenerPokemonAPI(url) {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
+
 
 function obtenerHash(index) {
       const hashConcatenar= transactionesHashes.value[index];
@@ -325,8 +321,7 @@ function subirNivel(pokemonId){
 
 
     
-    <button v-if="mostrarBoton" @click="obtenerPokemonID(),recuperarHashes()">MostrarPOkemon</button>
-   
+    <button v-if="mostrarBoton" @click="obtenerPokemonID(),recuperarHashes()">MostrarPokemon</button>   
        <div v-if="estadopokemon" class="container-fluid">
            <div class="row px-xl-5">
                <!-- Shop Sidebar Start -->
@@ -480,7 +475,7 @@ function subirNivel(pokemonId){
                        </div>
                        
                        <div v-for="(pokemon, index) in mostrarpokemonComprados" :key="index" class="col-lg-4 col-md-6 col-sm-6 pb-1">
-                           <div class="product-item bg-light mb-4">
+                           <div  class="product-item bg-light mb-4">
                                <div class="product-img position-relative overflow-hidden">
                                    <img class="img-fluid w-100" :src="pokemon.imagen" alt="">
                                    <div class="product-action">
@@ -493,25 +488,23 @@ function subirNivel(pokemonId){
                                <div class="text-center py-4">
                                    <a class="h6 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
                                    <div class="d-flex align-items-center justify-content-center mt-2">
-                                       <p>Id: {{ infoPokemonComprados[index].id }}</p>
-                                       <p>Nivel: {{ infoPokemonComprados[index].nivel }}</p>
-                                       <p>Ataque: {{ infoPokemonComprados[index].ataque }}</p>
-                                       <p>Defensa: {{ infoPokemonComprados[index].defensa }}</p>
-                                       
-                                   </div>
-                                                                   <div class="d-flex align-items-center justify-content-center mt-2">
-                                       <input v-model="precios[index]">
-   
-   
-                 
-                                       
-                                   </div>
-   
-                                   <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <button @click="venderPokemon(infoPokemonComprados[index].id,precios[index],pokemon.nombre,infoPokemonComprados[index].ataque,infoPokemonComprados[index].defensa,infoPokemonComprados[index].nivel)">VenderPokemon</button>
-                                    <button @click="subirNivel(infoPokemonComprados[index].id)">Subir Nivel</button>
+                                      <p>Id: {{ infoPokemonComprados[index]?.id }}</p>
+                                      <p>Nivel: {{ infoPokemonComprados[index]?.nivel }}</p>
+                                      <p>Ataque: {{ infoPokemonComprados[index]?.ataque }}</p>
+                                      <p>Defensa: {{ infoPokemonComprados[index]?.defensa }}</p>   
+                                    </div>
 
-                                   </div>
+                                    <div class="d-flex align-items-center justify-content-center mt-2">
+                                      <input v-model="precios[index]">
+                                    </div>
+
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                      <button @click="venderPokemon(infoPokemonComprados[index]?.id, precios[index], pokemon.nombre, infoPokemonComprados[index]?.ataque, infoPokemonComprados[index]?.defensa, infoPokemonComprados[index]?.nivel)">
+                                        Vender Pokemon
+                                      </button>
+                                      <button @click="subirNivel(infoPokemonComprados[index]?.id)">Subir Nivel</button>
+                                    </div>
+
                                </div>
                            </div>
                        </div> 
