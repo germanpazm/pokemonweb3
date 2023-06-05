@@ -74,7 +74,7 @@ import { RouterLink } from 'vue-router';
                 </p>
             </div>
             <div class="col-md-6 px-xl-0 text-center text-md-right">
-                <img class="img-fluid" src="img/payments.png" alt="">
+                <img class="img-fluid" src="" alt="">
             </div>
         </div>
     </div>
