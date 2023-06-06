@@ -25,12 +25,12 @@ function recuperarHashes() {
     web.methods.getUserTransactionHashes(userAccount).call()
       .then((hashes) => {
         console.log('Hashes de transacciones del usuario:', hashes);
-        transactionesHashes.value = hashes;
+        transactionesHashes.value = hashes.slice(-5);
 
         obtenerInformacionTransacciones()
           .then((transactionInfo) => {
             console.log("hola");
-            transactionInfoList.value = transactionInfo;
+            transactionInfoList.value = transactionInfo.slice(-5);
             console.log(transactionInfo)
             console.log('Información de transacciones:', transactionInfoList.value);
           })
