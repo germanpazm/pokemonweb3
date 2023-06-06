@@ -7,6 +7,8 @@ import { useStore } from 'vuex';
 
       let userAccount;
       const web3js = inject('web3js');
+      const web3 = inject('web3');
+
       const mostrarConexion=ref("No Conectado");
       const store = useStore();
 
@@ -57,6 +59,7 @@ import { useStore } from 'vuex';
     }
   
     // Manejar el evento accountsChanged
+    
     window.ethereum.on('accountsChanged', (accounts) => {
       if (accounts.length === 0) {
         // El usuario ha desconectado su billetera MetaMask, mostrar el botón de conectar de nuevo
@@ -77,6 +80,46 @@ import { useStore } from 'vuex';
 
       }
     });
+function checkAccounts(){
+    // Función para ejecutar el evento accountsChanged
+  window.ethereum.request({ method: 'eth_accounts' })
+    .then(accounts => {
+      if (accounts.length === 0) {
+        // El usuario ha desconectado su billetera MetaMask, mostrar el botón de conectar de nuevo
+        console.log("desconectado");
+        mostrarBotonBilletera();
+        userAccount = undefined;
+        mostrarConexion.value = "No Conectado";
+        store.dispatch('updateUserAccount', userAccount);
+      } else {
+        // El usuario ha conectado una nueva cuenta, actualizar el estado de la interfaz
+        console.log("cambio de cuenta");
+        nomostrarBotonBilletera();
+        mostrarConexion.value = "Conectado";
+        userAccount = accounts[0];
+        hashbilletera.value = userAccount;
+        store.dispatch('updateUserAccount', userAccount);
+      }
+      
+    })
+    .catch(err => {
+      console.log("desconectado2");
+        mostrarBotonBilletera();
+      userAccount = undefined;
+      mostrarConexion.value = "No Conectado";
+
+      store.dispatch('updateUserAccount', userAccount);
+
+      console.error(err);
+    });
+  }
+
+// Ejecutar la función cada segundo (1000 ms)
+setInterval(checkAccounts, 1000);
+
+
+
+
 
 const hashbilletera=ref();
       const botonbilletera=ref(true)

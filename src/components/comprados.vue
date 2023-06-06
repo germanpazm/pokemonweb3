@@ -476,18 +476,18 @@ function subirNivel(pokemonId){
                                    </div>
                                </div>
                                <div class="text-center py-4">
-                                   <a class="h6 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
-                                   <div class="d-flex align-items-center justify-content-center mt-2">
-                                      <p>Id: {{ infoPokemonComprados[index]?.id }}</p>
-                                      <p>Nivel: {{ infoPokemonComprados[index]?.nivel }}</p>
-                                      <p>Ataque: {{ infoPokemonComprados[index]?.ataque }}</p>
-                                      <p>Defensa: {{ infoPokemonComprados[index]?.defensa }}</p>   
+                                   <a class="h2 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
+                                   <div class="h2 d-flex align-items-center justify-content-center mt-2 ml-2">
+                                      <p>Id {{ infoPokemonComprados[index]?.id }}</p>
+                                      <p>Nivel {{ infoPokemonComprados[index]?.nivel }}</p>
+                                      <p>Ataque {{ infoPokemonComprados[index]?.ataque }}</p>
+                                      <p>Defensa {{ infoPokemonComprados[index]?.defensa }}</p>   
                                     </div>
 
                                     <div class="d-flex align-items-center justify-content-center mt-2">
                                       <input v-model="precios[index]">
                                     </div>
-
+                                    <br>
                                     <div class="d-flex align-items-center justify-content-center mb-1">
                                       <button @click="venderPokemon(infoPokemonComprados[index]?.id, precios[index], pokemon.nombre, infoPokemonComprados[index]?.ataque, infoPokemonComprados[index]?.defensa, infoPokemonComprados[index]?.nivel)">
                                         Vender Pokemon

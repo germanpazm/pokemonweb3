@@ -259,7 +259,8 @@ onMounted(() => {
                                 </div>
                             </div>
                             <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
+                                <a class="h2 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
+                                <br>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
                                     <h5>0.001 ETH</h5><h6 class="text-muted ml-2"><del>0.002 ETH</del></h6>
                                 </div>

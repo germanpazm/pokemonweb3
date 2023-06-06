@@ -362,12 +362,12 @@ const mostrarBoton=ref(false);
                                      </div>
                                  </div>
                                  <div class="text-center py-4">
-                                     <a class="h6 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
-                                     <div class="d-flex align-items-center justify-content-center mt-2">
-                                         <p>Id: {{ pokemonEnVenta[index]?.id }}</p>
-                                         <p>Nivel: {{ pokemonEnVenta[index]?.nivel }}</p>
-                                         <p>Ataque: {{ pokemonEnVenta[index]?.ataque }}</p>
-                                         <p>Defensa: {{ pokemonEnVenta[index]?.defensa }}</p>
+                                     <a class="h2 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
+                                     <div class="h2 d-flex align-items-center justify-content-center mt-2 ml-2">
+                                         <p>Id {{ pokemonEnVenta[index]?.id }}</p>
+                                         <p>Nivel {{ pokemonEnVenta[index]?.nivel }}</p>
+                                         <p>Ataque {{ pokemonEnVenta[index]?.ataque }}</p>
+                                         <p>Defensa {{ pokemonEnVenta[index]?.defensa }}</p>
                                          
                                      </div>
                                                                      <div class="d-flex align-items-center justify-content-center mt-2">
