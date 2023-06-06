@@ -237,20 +237,12 @@ onMounted(() => {
                             </div>
                             <div class="ml-2">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Latest</a>
-                                        <a class="dropdown-item" href="#">Popularity</a>
-                                        <a class="dropdown-item" href="#">Best Rating</a>
-                                    </div>
+                                    <button type="button" class="btn btn-sm btn-light " onclick="window.location.href='https://support.metamask.io/hc/es/articles/4410741657499-Gu%C3%ADa-Pr%C3%A1ctica-Transacciones'">Guia Transacciones</button>
+                                  
                                 </div>
                                 <div class="btn-group ml-2">
-                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Showing</button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">10</a>
-                                        <a class="dropdown-item" href="#">20</a>
-                                        <a class="dropdown-item" href="#">30</a>
-                                    </div>
+                                    <button type="button" class="btn btn-sm btn-light " onclick="window.location.href='https://support.metamask.io/hc/es/articles/360015489251-C%C3%B3mo-acelerar-o-cancelar-una-transacci%C3%B3n-pendiente'">Acelerar Transacciones</button>
+                                   
                                 </div>
                             </div>
                         </div>

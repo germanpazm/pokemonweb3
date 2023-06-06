@@ -451,36 +451,26 @@ function subirNivel(pokemonId){
                <!-- Shop Product Start -->
                <div class="col-lg-9 col-md-8">
                    <div class="row pb-3">
-                       <div class="col-12 pb-1">
-                           <div class="d-flex align-items-center justify-content-between mb-4">
-                               <div>
-                                   <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
-                                   <button class="btn btn-sm btn-light ml-2"><i class="fa fa-bars"></i></button>
-                               </div>
-                               <div class="ml-2">
-                                   <div class="btn-group">
-                                       <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
-                                       <div class="dropdown-menu dropdown-menu-right">
-                                           <a class="dropdown-item" href="#">Latest</a>
-             
-                                           <a class="dropdown-item" href="#">Popularity</a>
-                                           <a class="dropdown-item" href="#">Best Rating</a>
-                                       </div>
-                                   </div>
-                                   <div class="btn-group ml-2">
-                                       <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Showing</button>
-                                       <div class="dropdown-menu dropdown-menu-right">
-                                           <a class="dropdown-item" href="#">10</a>
-                                           <a class="dropdown-item" href="#">20</a>
-                                           <a class="dropdown-item" href="#">30</a>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
+                    <div class="col-12 pb-1">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div>
+                                <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
+                            </div>
+                            <div class="ml-2">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-light " onclick="window.location.href='https://support.metamask.io/hc/es/articles/4410741657499-Gu%C3%ADa-Pr%C3%A1ctica-Transacciones'">Guia Transacciones</button>
+                                  
+                                </div>
+                                <div class="btn-group ml-2">
+                                    <button type="button" class="btn btn-sm btn-light " onclick="window.location.href='https://support.metamask.io/hc/es/articles/360015489251-C%C3%B3mo-acelerar-o-cancelar-una-transacci%C3%B3n-pendiente'">Acelerar Transacciones</button>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                        
                        <div v-for="(pokemon, index) in mostrarpokemonComprados" :key="index" class="col-lg-4 col-md-6 col-sm-6 pb-1">
-                           <div class="product-item bg-light mb-4">
+                           <div  class="product-item bg-light mb-4">
                                <div class="product-img position-relative overflow-hidden">
                                    <img class="img-fluid w-100" :src="pokemon.imagen" alt="">
                                    <div class="product-action">
@@ -493,25 +483,23 @@ function subirNivel(pokemonId){
                                <div class="text-center py-4">
                                    <a class="h6 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
                                    <div class="d-flex align-items-center justify-content-center mt-2">
-                                       <p>Id: {{ infoPokemonComprados[index].id }}</p>
-                                       <p>Nivel: {{ infoPokemonComprados[index].nivel }}</p>
-                                       <p>Ataque: {{ infoPokemonComprados[index].ataque }}</p>
-                                       <p>Defensa: {{ infoPokemonComprados[index].defensa }}</p>
-                                       
-                                   </div>
-                                                                   <div class="d-flex align-items-center justify-content-center mt-2">
-                                       <input v-model="precios[index]">
-   
-   
-                 
-                                       
-                                   </div>
-   
-                                   <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <button @click="venderPokemon(infoPokemonComprados[index].id,precios[index],pokemon.nombre,infoPokemonComprados[index].ataque,infoPokemonComprados[index].defensa,infoPokemonComprados[index].nivel)">VenderPokemon</button>
-                                    <button @click="subirNivel(infoPokemonComprados[index].id)">Subir Nivel</button>
+                                      <p>Id: {{ infoPokemonComprados[index]?.id }}</p>
+                                      <p>Nivel: {{ infoPokemonComprados[index]?.nivel }}</p>
+                                      <p>Ataque: {{ infoPokemonComprados[index]?.ataque }}</p>
+                                      <p>Defensa: {{ infoPokemonComprados[index]?.defensa }}</p>   
+                                    </div>
 
-                                   </div>
+                                    <div class="d-flex align-items-center justify-content-center mt-2">
+                                      <input v-model="precios[index]">
+                                    </div>
+
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                      <button @click="venderPokemon(infoPokemonComprados[index]?.id, precios[index], pokemon.nombre, infoPokemonComprados[index]?.ataque, infoPokemonComprados[index]?.defensa, infoPokemonComprados[index]?.nivel)">
+                                        Vender Pokemon
+                                      </button>
+                                      <button @click="subirNivel(infoPokemonComprados[index]?.id)">Subir Nivel</button>
+                                    </div>
+
                                </div>
                            </div>
                        </div> 

@@ -332,33 +332,23 @@ const mostrarBoton=ref(false);
                  <!-- Shop Product Start -->
                  <div class="col-lg-9 col-md-8">
                      <div class="row pb-3">
-                         <div class="col-12 pb-1">
-                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                 <div>
-                                     <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
-                                     <button class="btn btn-sm btn-light ml-2"><i class="fa fa-bars"></i></button>
-                                 </div>
-                                 <div class="ml-2">
-                                     <div class="btn-group">
-                                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
-                                         <div class="dropdown-menu dropdown-menu-right">
-                                             <a class="dropdown-item" href="#">Latest</a>
-               
-                                             <a class="dropdown-item" href="#">Popularity</a>
-                                             <a class="dropdown-item" href="#">Best Rating</a>
-                                         </div>
-                                     </div>
-                                     <div class="btn-group ml-2">
-                                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Showing</button>
-                                         <div class="dropdown-menu dropdown-menu-right">
-                                             <a class="dropdown-item" href="#">10</a>
-                                             <a class="dropdown-item" href="#">20</a>
-                                             <a class="dropdown-item" href="#">30</a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
+                        <div class="col-12 pb-1">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div>
+                                <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
+                            </div>
+                            <div class="ml-2">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-light " onclick="window.location.href='https://support.metamask.io/hc/es/articles/4410741657499-Gu%C3%ADa-Pr%C3%A1ctica-Transacciones'">Guia Transacciones</button>
+                                  
+                                </div>
+                                <div class="btn-group ml-2">
+                                    <button type="button" class="btn btn-sm btn-light " onclick="window.location.href='https://support.metamask.io/hc/es/articles/360015489251-C%C3%B3mo-acelerar-o-cancelar-una-transacci%C3%B3n-pendiente'">Acelerar Transacciones</button>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                          
                          <div v-for="(pokemon, index) in mostrarpokemonEnVenta" :key="index" class="col-lg-4 col-md-6 col-sm-6 pb-1">
                              <div class="product-item bg-light mb-4">
@@ -374,10 +364,10 @@ const mostrarBoton=ref(false);
                                  <div class="text-center py-4">
                                      <a class="h6 text-decoration-none text-truncate" href="">{{ pokemon.nombre }}</a>
                                      <div class="d-flex align-items-center justify-content-center mt-2">
-                                         <p>Id: {{ pokemonEnVenta[index].id }}</p>
-                                         <p>Nivel: {{ pokemonEnVenta[index].nivel }}</p>
-                                         <p>Ataque: {{ pokemonEnVenta[index].ataque }}</p>
-                                         <p>Defensa: {{ pokemonEnVenta[index].defensa }}</p>
+                                         <p>Id: {{ pokemonEnVenta[index]?.id }}</p>
+                                         <p>Nivel: {{ pokemonEnVenta[index]?.nivel }}</p>
+                                         <p>Ataque: {{ pokemonEnVenta[index]?.ataque }}</p>
+                                         <p>Defensa: {{ pokemonEnVenta[index]?.defensa }}</p>
                                          
                                      </div>
                                                                      <div class="d-flex align-items-center justify-content-center mt-2">
@@ -388,7 +378,7 @@ const mostrarBoton=ref(false);
                                      </div>
      
                                      <div class="d-flex align-items-center justify-content-center mb-1">
-        <button @click="comprarPokemonVenta(pokemonEnVenta[index].id, pokemonEnVenta[index].precioventa, pokemonEnVenta[index].actualpropietario)">Comprar Pokemon</button>
+        <button @click="comprarPokemonVenta(pokemonEnVenta[index]?.id, pokemonEnVenta[index]?.precioventa, pokemonEnVenta[index]?.actualpropietario)">Comprar Pokemon</button>
   
                                      </div>
                                  </div>

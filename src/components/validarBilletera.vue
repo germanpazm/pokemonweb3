@@ -36,7 +36,6 @@ import { useStore } from 'vuex';
     }
   }
   
-  
     // Función para conectar la billetera MetaMask
     function connectWallet() {
       // Solicitar al usuario que conecte su billetera MetaMask
@@ -53,6 +52,7 @@ import { useStore } from 'vuex';
       .catch((error) => {
         // El usuario ha rechazado la conexión de la billetera MetaMask
         mostrarConexion.value= 'Error al conectar: ' + error.message;
+        mostrarBotonBilletera(); // Agrega esta línea para mostrar el botón nuevamente
       });
     }
   
