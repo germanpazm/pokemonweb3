@@ -398,7 +398,7 @@
 		"type": "function"
 	}
 ]
-    let contrato='0x79a2442397932a9872eb05A0a2e046BE01c664E6';
+    let contrato='0x97543e38372f16374C5d77BF0c5D530F98d70179';
     let web3js = new Web3(window.ethereum);
     const web=new web3js.eth.Contract(abi,contrato);
 

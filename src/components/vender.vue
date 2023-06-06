@@ -143,8 +143,8 @@ const mostrarBoton=ref(false);
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+                        <h1 class="mb-3">Mercado Pokémon ¡Descubre y adquiere Pokémon únicos de otros entrenadores!</h1>
+                        <p>Bienvenido al Mercado Pokémon, el lugar donde los entrenadores se reúnen para comprar y vender Pokémon entre sí. Aquí encontrarás una emocionante selección de Pokémon únicos y especiales puestos a la venta por otros usuarios como tú</p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="../assets/pokemon2.jpeg" alt="">
@@ -153,7 +153,6 @@ const mostrarBoton=ref(false);
                                 <img class="img-fluid" src="../assets/pokemon5.jpeg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -172,8 +171,8 @@ const mostrarBoton=ref(false);
                             <i class="fa fa-2x fa-money-check-alt text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Competitive Pricing</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Precios Competitivos</h5>
+                            <p class="m-0">Los mejores pokemons en cuestion de calidad precio</p>
                         </div>
                     </div>
                 </div>
@@ -183,8 +182,8 @@ const mostrarBoton=ref(false);
                             <i class="fa fa-2x fa-award text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Best Services</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Mejores Servicios</h5>
+                            <p class="m-0"> Nuestro equipo de expertos en Pokémon estará encantado de brindarte asistencia </p>
                         </div>
                     </div>
                 </div>
@@ -194,8 +193,8 @@ const mostrarBoton=ref(false);
                             <i class="fa fa-2x fa-globe text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Worldwide Coverage</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Totalmente disponible</h5>
+                            <p class="m-0">Podrás comprar tus pokemons desde cualquier parte del mundo</p>
                         </div>
                     </div>
                 </div>

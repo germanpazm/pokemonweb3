@@ -54,7 +54,7 @@ function obtenerpokemonComprados(id) {
         nombre: pokemon.data.name,
         imagen: pokemon.data.sprites.other['official-artwork'].front_default,
       }));
-
+      console.log("e")
       console.log(mostrarpokemonComprados);
     })
     .catch(error => {
@@ -92,26 +92,36 @@ function obtenerHash(index) {
       const hashConcatenar= transactionesHashes.value[index];
       return "https://sepolia.etherscan.io/tx/"+hashConcatenar
     }
+    const mensajeSinPokemon = ref(false);
+
 const PokemonNombres2=ref([]);
 const infoPokemonComprados=ref([]);
 const PokemonId=ref([]);
 function obtenerPokemon(ids){
   PokemonId.value=ids;
   console.log(PokemonId)
+  if (PokemonId.value.length === 0) {
+  mensajeSinPokemon.value = true;
+}
+else{
+  mensajeSinPokemon.value = false;
+
+
+
+}
+
    const userAccount = store.getters.getUserAccount;
   console.log(store.getters.getTransactionHashes);
 
   for (let id of ids){
     web.methods.pokemon(id).call()
     .then((result) => {
-      console.log("joder")
       console.log(result);
       console.log("aa");
       console.log(PokemonId)
       console.log("sa");
       console.log(result.nombre);
       PokemonNombres2.value.push(result.nombre)
-      console.log("joder2");
       console.log(PokemonNombres2)
       infoPokemonComprados.value.push({
           nombre: result.nombre,
@@ -252,23 +262,22 @@ function subirNivel(pokemonId){
             <div class="row">
                 <div class="col-lg-6" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="../assets/pokemon6.jpeg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="../assets/pokemon35.jpg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+                        <h1 class="mb-3">Centro Pokémon: Administra, entrena y vende tus Pokémon como nunca antes</h1>
+                        <p>Bienvenido al Centro Pokémon, el lugar centralizado para administrar y potenciar tus Pokémon como nunca antes. Aquí podrás ver tus Pokémon comprados, visualizar sus estadísticas, subir su nivel y, si lo deseas, ponerlos en venta para otros entrenadores</p>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <img class="img-fluid" src="../assets/pokemon2.jpeg" alt="">
+                                <img class="img-fluid" src="../assets/pokemon38.jpg" alt="">
                             </div>
                             <div class="col-6">
-                                <img class="img-fluid" src="../assets/pokemon5.jpeg" alt="">
+                                <img class="img-fluid" src="../assets/pokemon36.jpeg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -287,8 +296,8 @@ function subirNivel(pokemonId){
                             <i class="fa fa-2x fa-money-check-alt text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Competitive Pricing</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Precios Competitivos</h5>
+                            <p class="m-0">Los mejores pokemons en cuestion de calidad precio</p>
                         </div>
                     </div>
                 </div>
@@ -298,8 +307,8 @@ function subirNivel(pokemonId){
                             <i class="fa fa-2x fa-award text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Best Services</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Mejores Servicios</h5>
+                            <p class="m-0"> Nuestro equipo de expertos en Pokémon estará encantado de brindarte asistencia </p>
                         </div>
                     </div>
                 </div>
@@ -309,8 +318,8 @@ function subirNivel(pokemonId){
                             <i class="fa fa-2x fa-globe text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Worldwide Coverage</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Totalmente disponible</h5>
+                            <p class="m-0">Podrás comprar tus pokemons desde cualquier parte del mundo</p>
                         </div>
                     </div>
                 </div>
@@ -321,7 +330,9 @@ function subirNivel(pokemonId){
 
 
     
-    <button v-if="mostrarBoton" @click="obtenerPokemonID(),recuperarHashes()">MostrarPokemon</button>   
+    <button v-if="mostrarBoton" @click="obtenerPokemonID(),recuperarHashes()">MostrarPokemon</button>  
+    <div v-if="mensajeSinPokemon" class="text-center">No tienes ningun pokemon comprado</div>
+ 
        <div v-if="estadopokemon" class="container-fluid">
            <div class="row px-xl-5">
                <!-- Shop Sidebar Start -->
