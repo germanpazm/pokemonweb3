@@ -86,11 +86,7 @@ web.methods.getUserTransactionHashes(userAccount).call()
     });
 }
 
-async function obtenerPokemonAPI(url) {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
+
 
 function obtenerHash(index) {
       const hashConcatenar= transactionesHashes.value[index];
@@ -325,8 +321,7 @@ function subirNivel(pokemonId){
 
 
     
-    <button v-if="mostrarBoton" @click="obtenerPokemonID(),recuperarHashes()">MostrarPOkemon</button>
-   
+    <button v-if="mostrarBoton" @click="obtenerPokemonID(),recuperarHashes()">MostrarPokemon</button>   
        <div v-if="estadopokemon" class="container-fluid">
            <div class="row px-xl-5">
                <!-- Shop Sidebar Start -->
