@@ -22,17 +22,22 @@ function recuperarHashes() {
   const userAccount = store.getters.getUserAccount;
 
   if (userAccount !== undefined && userAccount !== null) {
-    web.methods.getUserTransactionHashes(userAccount).call()
+    web.methods.obtenerHashTransaccion(userAccount).call()
       .then((hashes) => {
         console.log('Hashes de transacciones del usuario:', hashes);
+        if(hashes.length===0){
+              alert("No has comprado ningún pokemon del apartado comprar")
+            }
         transactionesHashes.value = hashes.slice(-5);
 
         obtenerInformacionTransacciones()
           .then((transactionInfo) => {
             console.log("hola");
             transactionInfoList.value = transactionInfo.slice(-5);
+            
             console.log(transactionInfo)
             console.log('Información de transacciones:', transactionInfoList.value);
+          
           })
           .catch((error) => {
             console.error('Error al obtener la información de transacciones:', error);
@@ -48,7 +53,7 @@ function recuperarHashes() {
 
   setTimeout(() => {
     recuperandoHashes.value = false;
-  }, 3000);
+  }, 1500);
 }
 
 function obtenerInformacionTransacciones() {

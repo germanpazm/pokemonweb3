@@ -67,7 +67,7 @@ function comprarpokemon(nombre) {
 function hashes(hash){
   const userAccount = store.getters.getUserAccount;
 
-  web.methods.logTransaction(hash).send({
+  web.methods.anadirHashTransaccion(hash).send({
   from: userAccount,
 })
 .then((result) => {
@@ -84,7 +84,7 @@ function hashes(hash){
 
 }
 function recuperarHashes(user){
-web.methods.getUserTransactionHashes(user).call()
+web.methods.obtenerHashTransaccion(user).call()
 .then((hashes) => {
     console.log('Hashes de transacciones del usuario:', hashes);
     // Utiliza los hashes de transacciones obtenidos

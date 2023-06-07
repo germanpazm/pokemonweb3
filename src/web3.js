@@ -69,6 +69,19 @@
 	{
 		"inputs": [
 			{
+				"internalType": "bytes32",
+				"name": "_transactionHash",
+				"type": "bytes32"
+			}
+		],
+		"name": "anadirHashTransaccion",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
 				"name": "nombre",
 				"type": "string"
@@ -90,25 +103,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_user",
-				"type": "address"
-			}
-		],
-		"name": "getUserTransactionHashes",
-		"outputs": [
-			{
-				"internalType": "bytes32[]",
-				"name": "",
-				"type": "bytes32[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "isOwner",
 		"outputs": [
@@ -124,21 +118,27 @@
 	{
 		"inputs": [
 			{
-				"internalType": "bytes32",
-				"name": "_transactionHash",
-				"type": "bytes32"
+				"internalType": "address",
+				"name": "usuario",
+				"type": "address"
 			}
 		],
-		"name": "logTransaction",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"name": "obtenerHashTransaccion",
+		"outputs": [
+			{
+				"internalType": "bytes32[]",
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "_owner",
+				"name": "propietario",
 				"type": "address"
 			}
 		],
@@ -398,7 +398,7 @@
 		"type": "function"
 	}
 ]
-    let contrato='0x97543e38372f16374C5d77BF0c5D530F98d70179';
+    let contrato='0x5225DFBA19F75A4591BdbB3173befE4467B615f0';
     let web3js = new Web3(window.ethereum);
     const web=new web3js.eth.Contract(abi,contrato);
 

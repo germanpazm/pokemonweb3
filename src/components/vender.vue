@@ -369,13 +369,11 @@ const mostrarBoton=ref(false);
                                          <p>Defensa {{ pokemonEnVenta[index]?.defensa }}</p>
                                          
                                      </div>
-                                                                     <div class="d-flex align-items-center justify-content-center mt-2">
-     
-     
-                   
-                                         
-                                     </div>
-     
+                                     <div class="h4 d-flex align-items-center justify-content-center mt-2">
+                                        <p>Precio Venta:{{ parseInt(pokemonEnVenta[index]?.precioventa) / 10**18 }} ETH</p>
+                                </div>
+                                    
+                      
                                      <div class="d-flex align-items-center justify-content-center mb-1">
         <button @click="comprarPokemonVenta(pokemonEnVenta[index]?.id, pokemonEnVenta[index]?.precioventa, pokemonEnVenta[index]?.actualpropietario)">Comprar Pokemon</button>
   

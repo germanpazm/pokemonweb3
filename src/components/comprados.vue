@@ -65,7 +65,7 @@ function obtenerpokemonComprados(id) {
 function recuperarHashes(){
   const userAccount = store.getters.getUserAccount;
 
-web.methods.getUserTransactionHashes(userAccount).call()
+web.methods.obtenerHashTransaccion(userAccount).call()
 .then((hashes) => {
     console.log('Hashes de transacciones del usuario:', hashes);
     transactionesHashes.value=hashes;
@@ -101,13 +101,7 @@ function obtenerPokemon(ids){
   PokemonId.value=ids;
   console.log(PokemonId)
   if (PokemonId.value.length === 0) {
-  mensajeSinPokemon.value = true;
-}
-else{
-  mensajeSinPokemon.value = false;
-
-
-
+    alert("No tienes ningún Pokemon Comprado")
 }
 
    const userAccount = store.getters.getUserAccount;
@@ -213,6 +207,10 @@ function obtenerInformacionTransacciones() {
 }
 
 function venderPokemon(id,precioVenta,pokemonNombre,ataque,defensa,nivel){
+  if(isNaN(precioVenta)|| precioVenta=="" ){
+    alert("Introduzca un precio(numero) para vender el pokemon")
+    return
+  }
   const userAccount = store.getters.getUserAccount;
   let precio=precioVenta.toString();
   let enviar=web3js.utils.toWei(precio, 'ether')
@@ -331,8 +329,6 @@ function subirNivel(pokemonId){
 
     
     <button v-if="mostrarBoton" @click="obtenerPokemonID(),recuperarHashes()">MostrarPokemon</button>  
-    <div v-if="mensajeSinPokemon" class="text-center">No tienes ningun pokemon comprado</div>
- 
        <div v-if="estadopokemon" class="container-fluid">
            <div class="row px-xl-5">
                <!-- Shop Sidebar Start -->
