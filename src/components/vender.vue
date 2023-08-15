@@ -11,6 +11,8 @@ const web3js = inject('web3js');
 const web = inject('web');
 const mostrarpokemonEnVenta = ref([]);
 const store = useStore();
+const consultar=ref(false)
+
 
 function mostrarPokemonEnVenta(id) {
   const nombresPokemonEnVenta = pokemonEnVenta.value.map(pokemon => pokemon.pokemonNombre);
@@ -33,6 +35,11 @@ function mostrarPokemonEnVenta(id) {
 const estadopokemon=ref(false);
 
 function obtenerPokemonsEnVentaId() {
+  if (consultar.value) {
+    return;
+  }
+  consultar.value = true;
+
   const userAccount = store.getters.getUserAccount;
   if(userAccount!=undefined || userAccount!=null ){
     
@@ -42,6 +49,10 @@ function obtenerPokemonsEnVentaId() {
   else{
     estadopokemon.value=false;
   }
+  setTimeout(() => {
+    consultar.value = false;
+  }, 2000);
+
 }
 
 const ID = ref([]);

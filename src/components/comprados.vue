@@ -15,6 +15,11 @@ const web=inject('web');
 
 ///let pokemonTiempoReal=setInterval(obtenerPokemonID,1000);
 function obtenerPokemonID(){
+  if (consultar.value) {
+    return;
+  }
+  consultar.value = true;
+
   
   const userAccount = store.getters.getUserAccount;
 
@@ -31,6 +36,9 @@ infoPokemonComprados.value=[];
   else{
     estadopokemon.value=false;
   }
+  setTimeout(() => {
+    consultar.value = false;
+  }, 2000);
 
 
   }
@@ -39,11 +47,12 @@ let pokemonComprados= new Set();
 let mostrarpokemonComprados=ref([])
 const InsertarIDPokemon=ref()
 function obtenerpokemonComprados(id) {
-  console.log("hols");
+  /*console.log("hols");
   console.log(id);
   console.log(InsertarIDPokemon.value)
   console.log("aaa");
   console.log(PokemonNombres2)
+  */
 ;  const nombresArray = [...pokemonComprados];
   const pokemonPromises = PokemonNombres2.value.map(nombre => servicioDatosPokemon.get(nombre));
 
@@ -54,8 +63,8 @@ function obtenerpokemonComprados(id) {
         nombre: pokemon.data.name,
         imagen: pokemon.data.sprites.other['official-artwork'].front_default,
       }));
-      console.log("e")
-      console.log(mostrarpokemonComprados);
+      //console.log("e")
+      //console.log(mostrarpokemonComprados);
     })
     .catch(error => {
       console.error('Error al obtener los datos de los pokémones:', error);
@@ -97,46 +106,50 @@ function obtenerHash(index) {
 const PokemonNombres2=ref([]);
 const infoPokemonComprados=ref([]);
 const PokemonId=ref([]);
-function obtenerPokemon(ids){
-  PokemonId.value=ids;
-  console.log(PokemonId)
+const consultar=ref(false)
+
+async function obtenerPokemon(ids) {
+  let idpokemon = ids.map((elemento) => parseInt(elemento, 10));
+  console.log(idpokemon);
+  PokemonId.value = ids;
+  console.log(PokemonId);
+  //console.log(PokemonId)
+
   if (PokemonId.value.length === 0) {
-    alert("No tienes ningún Pokemon Comprado")
-}
-
-   const userAccount = store.getters.getUserAccount;
-  console.log(store.getters.getTransactionHashes);
-
-  for (let id of ids){
-    web.methods.pokemon(id).call()
-    .then((result) => {
-      console.log(result);
-      console.log("aa");
-      console.log(PokemonId)
-      console.log("sa");
-      console.log(result.nombre);
-      PokemonNombres2.value.push(result.nombre)
-      console.log(PokemonNombres2)
-      infoPokemonComprados.value.push({
-          nombre: result.nombre,
-          nivel: result.nivel,
-          ataque: result.ataque,
-          defensa:result.defensa,
-          id:id
-        });
-
-        console.log(infoPokemonComprados);
-    pokemonComprados.add(result.nombre)
-    console.log(pokemonComprados)
-    estadopokemon.value=true
-    obtenerpokemonComprados(id);
-})
-.catch((error) => {
-  console.error(error);
-});
-  
+    alert("No tienes ningún Pokemon Comprado");
   }
+
+  const userAccount = store.getters.getUserAccount;
+  //console.log(store.getters.getTransactionHashes);
+
+  for (let id of idpokemon) {
+    try {
+      console.log("joder");
+      console.log(id);
+      const result = await web.methods.pokemon(id).call();
+      console.log("hols");
+      console.log(id);
+      console.log(result);
+
+      PokemonNombres2.value.push(result.nombre);
+      infoPokemonComprados.value.push({
+        nombre: result.nombre,
+        nivel: result.nivel,
+        ataque: result.ataque,
+        defensa: result.defensa,
+        id: id,
+      });
+
+      pokemonComprados.add(result.nombre);
+      estadopokemon.value = true;
+      obtenerpokemonComprados(id);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
 }
+
 
 
 const estadopokemon=ref(false);
@@ -258,7 +271,7 @@ function subirNivel(pokemonId){
     <div class="container-fluid py-5">
         <div class="container pt-5">
             <div class="row">
-                <div class="col-lg-6" style="min-height: 500px;">
+                <div class="col-lg-6" style="min-height: 500px;">erPokemonID(),recupera
                     <div class="position-relative h-100">
                         <img class="position-absolute w-100 h-100" src="../assets/pokemon35.jpg" style="object-fit: cover;">
                     </div>
@@ -328,7 +341,7 @@ function subirNivel(pokemonId){
 
 
     
-    <button v-if="mostrarBoton" @click="obtenerPokemonID(),recuperarHashes()">MostrarPokemon</button>  
+    <button v-if="mostrarBoton" @click="obtenerPokemonID()">MostrarPokemon</button>  
        <div v-if="estadopokemon" class="container-fluid">
            <div class="row px-xl-5">
                <!-- Shop Sidebar Start -->
