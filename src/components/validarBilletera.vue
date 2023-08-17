@@ -70,7 +70,7 @@ import { useStore } from 'vuex';
         store.dispatch('updateUserAccount', userAccount);
       } else {
         // El usuario ha conectado una nueva cuenta, actualizar el estado de la interfaz
-          console.log("cambio de cuenta");
+          console.log("cambio de cuenta1");
           nomostrarBotonBilletera();
         mostrarConexion.value="Conectado";
         userAccount= accounts[0];
@@ -94,6 +94,7 @@ function checkAccounts(){
       } else {
         // El usuario ha conectado una nueva cuenta, actualizar el estado de la interfaz
         console.log("cambio de cuenta");
+        console.log(accounts.length);
         nomostrarBotonBilletera();
         mostrarConexion.value = "Conectado";
         userAccount = accounts[0];

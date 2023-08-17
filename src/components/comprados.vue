@@ -154,7 +154,7 @@ async function obtenerPokemon(ids) {
 
 const estadopokemon=ref(false);
 
-let estadorealUIPokemon=setInterval(EstadoPokemonComprados,500)
+let estadorealUIPokemon=setInterval(EstadoPokemonComprados,2500)
 const actualizar=ref();
 
 /*function EstadoPokemonComprados(){
@@ -181,10 +181,18 @@ const actualizar=ref();
   }
 
 }
-*/
+*/   
+ const comparacion = ref([]);
+ const comparacion2 = ref([]);
+
+
 
 function EstadoPokemonComprados(){
   const userAccount = store.getters.getUserAccount;
+  comparacion.value.push(store.getters.getUserAccount)
+ comparacion2.value = comparacion.value.slice(-2);
+
+console.log(comparacion2.value)
   if(userAccount===undefined || userAccount===null ){
     //estadopokemon.value=false;
     obtenerPokemonID();
@@ -194,6 +202,11 @@ function EstadoPokemonComprados(){
   else{
     mostrarBoton.value=true;
   }
+  if(comparacion2.value[0]!==comparacion2.value[1]){
+    obtenerPokemonID();
+
+  }
+
 
 }
 

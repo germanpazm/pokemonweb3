@@ -36,6 +36,8 @@ function recuperarHashes() {
             transactionInfoList.value = transactionInfo.slice(-5);
             
             console.log(transactionInfo)
+            console.log("asd")
+            console.log(transactionInfo[1]);
             console.log('Información de transacciones:', transactionInfoList.value);
           
           })
